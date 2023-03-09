@@ -19,9 +19,8 @@
     "host_permissions": ["https://twitch.tv/"],
     "browser_specific_settings": {
         "gecko": {
-          "id": "{4f18c654-9e15-4dc2-a921-365f901abca7}",
-          "strict_min_version": "42.0"
+            "id": "{4f18c654-9e15-4dc2-a921-365f901abca7}",
+            "strict_min_version": "42.0"
         }
-      }
-      
+    }
 }

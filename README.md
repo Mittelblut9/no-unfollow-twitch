@@ -5,7 +5,7 @@
 This is a Firefox extension that removes the "Unfollow" button from Twitch. It's a simple extension that does one thing, and it does it well.
 
 ## Installation
-Install it in the firefox addons store: https://addons.mozilla.org/en-US/firefox/addon/xxxxxx/
+Install it in the firefox addons store: https://addons.mozilla.org/en/firefox/addon/no-unfollow-twitch/
 
 ## Usage
 Once installed, the extension will automatically remove the "Unfollow" button from Twitch. You can still unfollow channels by going to the channel page and clicking the "Unfollow" button there.
