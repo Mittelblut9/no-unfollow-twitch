@@ -1,0 +1,6 @@
+{
+    "scripts": {
+        "format": "docker run --rm -v $(pwd):/app -w /app node:18.8 sh -c \"npm install -g prettier && prettier --write . && rm -rf node_modules\"",
+        "check": "docker run --rm -v $(pwd):/app -w /app node:18.8 sh -c \"npm install -g prettier && prettier --check . && rm -rf node_modules\""
+    }
+}

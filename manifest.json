@@ -1,0 +1,20 @@
+{
+    "manifest_version": 3,
+    "name": "No unfollow Twitch",
+    "version": "1.0",
+    "author": "Mittelblut9",
+    "homepage_url": "https://github.com/Mittelblut9/no-unfollow-twitch",
+    "description": "",
+
+    "icons": {
+        "48": "assets/icons/tnuf.jpg"
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://*.twitch.tv/*"],
+            "js": ["nounfollow.js"]
+        }
+    ],
+    "permissions": ["storage"],
+    "host_permissions": ["https://twitch.tv/"]
+}
