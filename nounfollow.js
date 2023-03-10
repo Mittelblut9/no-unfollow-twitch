@@ -13,6 +13,8 @@ let lastRoute = null;
 const maxAttemps = 10;
 const watchForRouteInterval = 1000;
 const searchForIconInterval = 1000;
+let afterCheckInverval = null;
+let afterCheckInvervalCount = 5000;
 
 async function searchForIcon() {
     const shouldIgnoreRoute = await ignoreRoute();
@@ -21,17 +23,14 @@ async function searchForIcon() {
         return;
     }
 
-    const unfollowbtn = getUnfollowBtn();
-    const followBtn = getFollowBtn();
-
-    if (followBtn) {
+    if (getFollowBtn()) {
         logInfo(`Follow button found, stopping...`);
         return;
     }
 
-    if (unfollowbtn) {
+    if (getUnfollowBtn()) {
         logInfo(`Icon found, removing...`);
-        removeIcon(unfollowbtn);
+        removeIcon();
     } else {
         if (tries > maxAttemps) {
             logError(`Icon not found, stopping...`);
@@ -51,13 +50,31 @@ async function searchForIcon() {
     }
 }
 
-function removeIcon(btn) {
-    const unfollowBtnParent = btn.parentElement;
+function removeIcon() {
+    const unfollowbtn = getUnfollowBtn();
+    if (!unfollowbtn) {
+        return;
+    }
+    const unfollowBtnParent = unfollowbtn.parentElement;
 
     setTimeout(() => {
-        btn.remove();
+        unfollowbtn.remove();
         createEmptyPlaceholderDiv(unfollowBtnParent);
+
+        afterCheck();
     }, 500);
+}
+
+function afterCheck() {
+    clearInterval(afterCheckInverval);
+    afterCheckInverval = setInterval(() => {
+        const unfollowbtn = getUnfollowBtn();
+        if (unfollowbtn) {
+            const unfollowBtnParent = unfollowbtn.parentElement;
+            unfollowbtn.remove();
+            createEmptyPlaceholderDiv(unfollowBtnParent);
+        }
+    }, afterCheckInvervalCount);
 }
 
 function getUnfollowBtn() {
