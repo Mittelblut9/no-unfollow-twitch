@@ -20,5 +20,8 @@ If you want to contribute to this project, feel free to fork it and submit a pul
 4. Click `Load Temporary Add-on...`
 5. Select any file in the extension's directory
 
+## Screenshots
+<img src="assets/screenshots/screenshot_1.png" />
+
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
